@@ -2269,16 +2269,7 @@ puzzle = """9195
 3881
 2464"""
 
-def solve_puzzle():
-	elves_list = puzzle.split('\n\n')
-	cal_max = 0
-	for elf in elves_list:
-		cal_sum = 0
-		for cal in elf.split('\n'):
-			cal_sum += int(cal)
-		if cal_sum > cal_max:
-			cal_max = cal_sum
-	print("answer = "+str(cal_max))
-	
-solve_puzzle()
 
+elves_sum = [sum([int(cal) for cal in elf.split("\n")]) for elf in puzzle.split('\n\n') ]
+print ("answer 1 = {}".format(max(elves_sum)))
+print ("answer 2 = {}".format(sum(sorted(elves_sum)[-3:])))
